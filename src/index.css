@@ -9,6 +9,20 @@
   --color-off-white: #f0f1f6;
   --color-button-hover: #f0f1f6;
 
+  /* Dark Palette */
+  --color-charcoal: #1a1a2e;
+  --color-dark-navy: #16213e;
+  --color-lighter-navy: #0f3460;
+  --color-vibrant-pink: #e94560;
+  --color-vibrant-yellow: #f8b400;
+
+  /* Warm Palette */
+  --color-sunset-cream: #fff5e8;
+  --color-sunset-peach: #ffd6a8;
+  --color-sunset-coral: #ff9a76;
+  --color-sunset-red: #ff6b6b;
+  --color-sunset-brown: #5e503f;
+
   --font-inter: 'Inter', 'sans-serif';
 }
 
