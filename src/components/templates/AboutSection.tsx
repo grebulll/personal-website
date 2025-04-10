@@ -4,17 +4,13 @@ export const AboutSection = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center relative z-10 bg-salt-white"
+      className="min-h-screen flex relative z-10 justify-center"
     >
-      <div className="container py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Left Column - Visual Elements */}
+      <div className="py-20 grid grid-cols-1 lg:grid-cols-2 items-center">
         <div className="space-y-8">
           <div className="relative">
-            <div className="absolute -top-8 -left-8 w-32 h-32 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
             <AboutTitleCard />
           </div>
-
-          {/* <TechStackIcons /> */}
         </div>
 
         <div className="space-y-6">

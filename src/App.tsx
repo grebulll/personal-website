@@ -53,8 +53,10 @@ export default function App() {
     `,
       }}
     >
-      <HeroSection />
-      <AboutSection />
+      <div className="container justify-self-center px-44">
+        <HeroSection />
+        <AboutSection />
+      </div>
     </div>
   );
 }

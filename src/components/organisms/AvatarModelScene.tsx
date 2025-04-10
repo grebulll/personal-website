@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 
 function AvatarModel() {
   const { scene } = useGLTF('../floating_island.glb');
-  return <primitive object={scene} scale={0.02} position={[0, -0.5, 0]} />;
+  return <primitive object={scene} scale={0.018} />;
 }
 
 export const AvatarModelScene = () => {
