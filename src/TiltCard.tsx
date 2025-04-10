@@ -13,7 +13,7 @@ const TiltCard = ({
 }: TiltCardProps) => {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number>(0);
   const isHovering = useRef(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
