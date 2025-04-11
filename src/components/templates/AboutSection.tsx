@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
 import TiltCard from '../../TiltCard';
-import { FaJs, FaReact, FaGitAlt, FaVuejs } from 'react-icons/fa';
-import { SiNuxtdotjs, SiRedux, SiTailwindcss } from 'react-icons/si';
 
 const timelineEvents = [
   {
@@ -56,6 +54,32 @@ export default function AboutSection() {
           </p>
         </motion.div>
         <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="py-10"
+        >
+          <h3 className="text-3xl font-medium mt-8 mb-6">Core Skills</h3>
+          <TiltCard tiltIntensity={1}>
+            <div className="bg-gunmetal-black text-mint-green font-mono p-6 rounded-xl shadow-lg text-left text-sm sm:text-base leading-relaxed transition-all duration-300 hover:shadow-2xl hover:ring-4 hover:ring-mint-green hover:bg-black">
+              <p>
+                <span className="text-mint-green">$</span> cat
+                my-core-skills.txt
+                <span className="animate-pulse">█</span>
+              </p>
+              <p>▶ React ⚛️</p>
+              <p>▶ Vue 🌱</p>
+              <p>▶ Nuxt 🧩</p>
+              <p>▶ Pinia 🍍</p>
+              <p>▶ Redux ♻️</p>
+              <p>▶ Expo 📱</p>
+              <p>▶ Tailwind 💨</p>
+              <p>▶ JavaScript ✨</p>
+              <p>▶ Git 🔧</p>
+            </div>
+          </TiltCard>
+        </motion.div>
+        <motion.div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -77,78 +101,6 @@ export default function AboutSection() {
                 </TiltCard>
               </div>
             ))}
-          </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="py-10"
-        >
-          <h3 className="text-3xl font-medium mt-8 mb-6">Core Skills</h3>
-          <div className="flex flex-row flex-wrap gap-8 justify-center">
-            <div className="w-64">
-              <TiltCard>
-                <div className="flex flex-col items-center text-center p-6 bg-gradient-to-r bg-gunmetal-black text-salt-white rounded-xl shadow-lg hover:scale-105 transition-all duration-300">
-                  <FaReact className="text-5xl mb-4" />
-                  <h4 className="text-xl font-semibold">React</h4>
-                </div>
-              </TiltCard>
-            </div>
-
-            <div className="w-64">
-              <TiltCard>
-                <div className="flex flex-col items-center text-center p-6 bg-gradient-to-r bg-gunmetal-black text-salt-white rounded-xl shadow-lg hover:scale-105 transition-all duration-300">
-                  <FaVuejs className="text-5xl mb-4" />
-                  <h4 className="text-xl font-semibold">Vue</h4>
-                </div>
-              </TiltCard>
-            </div>
-
-            <div className="w-64">
-              <TiltCard>
-                <div className="flex flex-col items-center text-center p-6 bg-gradient-to-r bg-gunmetal-black text-salt-white rounded-xl shadow-lg hover:scale-105 transition-all duration-300">
-                  <SiNuxtdotjs className="text-5xl mb-4" />
-                  <h4 className="text-xl font-semibold">Nuxt</h4>
-                </div>
-              </TiltCard>
-            </div>
-
-            <div className="w-64">
-              <TiltCard>
-                <div className="flex flex-col items-center text-center p-6 bg-gradient-to-r bg-gunmetal-black text-salt-white rounded-xl shadow-lg hover:scale-105 transition-all duration-300">
-                  <SiRedux className="text-5xl mb-4" />
-                  <h4 className="text-xl font-semibold">Redux</h4>
-                </div>
-              </TiltCard>
-            </div>
-
-            <div className="w-64">
-              <TiltCard>
-                <div className="flex flex-col items-center text-center p-6 bg-gradient-to-r bg-gunmetal-black text-salt-white rounded-xl shadow-lg hover:scale-105 transition-all duration-300">
-                  <SiTailwindcss className="text-5xl mb-4" />
-                  <h4 className="text-xl font-semibold">Tailwind</h4>
-                </div>
-              </TiltCard>
-            </div>
-
-            <div className="w-64">
-              <TiltCard>
-                <div className="flex flex-col items-center text-center p-6 bg-gradient-to-r bg-gunmetal-black text-salt-white rounded-xl shadow-lg hover:scale-105 transition-all duration-300">
-                  <FaJs className="text-5xl mb-4" />
-                  <h4 className="text-xl font-semibold">JavaScript</h4>
-                </div>
-              </TiltCard>
-            </div>
-
-            <div className="w-64">
-              <TiltCard>
-                <div className="flex flex-col items-center text-center p-6 bg-gradient-to-r bg-gunmetal-black text-salt-white rounded-xl shadow-lg hover:scale-105 transition-all duration-300">
-                  <FaGitAlt className="text-5xl mb-4" />
-                  <h4 className="text-xl font-semibold">Git</h4>
-                </div>
-              </TiltCard>
-            </div>
           </div>
         </motion.div>
       </div>

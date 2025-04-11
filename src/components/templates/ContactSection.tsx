@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { FancyButton } from '../molecules/FancyButton';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 text-gunmetal-black font-inter">
+    <section id="contact" className="pt-20 text-gunmetal-black font-inter">
       <motion.h2
         className="text-4xl font-bold text-center mb-10"
         initial={{ opacity: 0, y: -20 }}
@@ -104,20 +105,23 @@ export default function ContactSection() {
           </div>
 
           <div className="mt-6 text-center">
-            <button
+            <FancyButton
               type="submit"
-              className="px-8 py-3 bg-salt-white text-gunmetal-black font-semibold rounded-md hover:bg-neon-blue hover:text-salt-white hover:cursor-pointer transition-all"
-            >
-              Send Message
-            </button>
+              title="Send Message"
+              flairColor="bg-neon-blue"
+              backgroundColor="bg-salt-white"
+              textColor="text-gunmetal-black"
+              hoverBackgroundColor="hover:bg-salt-white"
+              hoverTextColor="hover:text-salt-white"
+            />
           </div>
         </form>
 
-        {status && (
+        {status ? (
           <div className="mt-6 text-center text-green-500 font-semibold">
             {status}
           </div>
-        )}
+        ) : null}
       </motion.div>
     </section>
   );
