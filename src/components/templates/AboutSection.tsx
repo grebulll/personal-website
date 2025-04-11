@@ -66,7 +66,7 @@ export default function AboutSection() {
             {timelineEvents.map((event, index) => (
               <div key={index} className="flex items-center">
                 <TiltCard>
-                  <div className="w-80 min-h-[200px] bg-gunmetal-black text-salt-white p-6 rounded-xl shadow-lg hover:bg-mint-green hover:text-gunmetal-black transition-all flex flex-col">
+                  <div className="md:w-80 min-h-[200px] bg-gunmetal-black text-salt-white p-6 rounded-xl shadow-lg hover:bg-mint-green hover:text-gunmetal-black transition-all flex flex-col">
                     <h4 className="font-semibold text-xl mb-4">
                       {event.year} - {event.title}
                     </h4>

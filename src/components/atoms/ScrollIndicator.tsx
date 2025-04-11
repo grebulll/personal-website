@@ -6,8 +6,7 @@ export function ScrollIndicator() {
 
   return (
     <div
-      className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 
-      `}
+      className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 md:block hidden`}
       onClick={handleScrollToAbout}
     >
       <div className="animate-bounce flex flex-col items-center cursor-pointer">
