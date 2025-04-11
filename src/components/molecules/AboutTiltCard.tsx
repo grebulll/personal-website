@@ -21,7 +21,7 @@ export const AboutTitleCard = () => {
           </p>
 
           <p className="font-medium">&gt; Let's build something together!</p>
-          <button className="text-gunmetal-black mt-6 font-normal hover:bg-[#F0F1F6] hover:text-[#121726] hover:cursor-pointer transition duration-300 px-6 py-3 rounded-xl shadow-md">
+          <button className="bg-gunmetal-black text-salt-white mt-6 font-normal hover:bg-mint-green hover:text-gunmetal-black hover:cursor-pointer transition duration-300 px-6 py-3 rounded-xl shadow-md">
             <p className="text-lg font-light">Contact</p>
           </button>
         </div>

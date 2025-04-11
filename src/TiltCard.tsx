@@ -74,7 +74,7 @@ const TiltCard = ({
           : `transform ${resetSpeed}ms cubic-bezier(0.18, 0.89, 0.32, 1.28)`,
         transformStyle: 'preserve-3d',
       }}
-      className="hover:cursor-pointer justify-self-center"
+      className="hover:cursor-pointer justify-self-center w-full"
     >
       {children}
     </div>

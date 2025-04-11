@@ -27,7 +27,7 @@ export const HeroSection = () => {
           </p>
 
           <div className="flex gap-2 justify-center">
-            <button className="px-6 py-3 bg-gunmetal-black text-white rounded-lg hover:bg-mint-green hover:cursor-pointer hover:text-gunmetal-black transition">
+            <button className="px-6 py-3 bg-gunmetal-black text-salt-white rounded-lg hover:bg-mint-green hover:cursor-pointer hover:text-gunmetal-black transition">
               Contact me
             </button>
           </div>

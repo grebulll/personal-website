@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
-import { AboutSection } from './components/templates/AboutSection';
 import { HeroSection } from './components/templates/HeroSection';
+import AboutSection from './components/templates/AboutSection';
+import ContactSection from './components/templates/ContactSection';
 
 export default function App() {
   const backgroundRef = useRef<HTMLDivElement>(null);
@@ -18,7 +19,7 @@ export default function App() {
       backgroundRef.current.style.background = `
         radial-gradient(
           circle at ${x * 100}% ${y * 100}%,
-          rgba(99, 102, 241, 0.1) 0%,
+          rgba(31, 41, 55, 0.1) 0%,
           rgba(249, 250, 251, 1) 20%,
           rgba(249, 250, 251, 1) 50%
         ),
@@ -53,9 +54,10 @@ export default function App() {
     `,
       }}
     >
-      <div className="container justify-self-center px-44">
+      <div className="container justify-self-center md:px-44 px-8">
         <HeroSection />
         <AboutSection />
+        <ContactSection />
       </div>
     </div>
   );
