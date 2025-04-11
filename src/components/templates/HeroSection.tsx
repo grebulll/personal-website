@@ -11,8 +11,14 @@ export const HeroSection = () => {
         </div>
 
         <div className="flex flex-col z-20 w-full md:w-1/2 h-full">
-          <h1 className="text-4xl md:text-7xl font-medium pb-4 animate-fadeInUp">
-            Hi, I'm Gabriel
+          <h1 className="text-4xl md:text-7xl font-medium pb-4 animate-fadeInUp relative group">
+            Hi, I'm{' '}
+            <span className="text-gunmetal-black cursor-pointer">
+              Gabriel
+              <span className="absolute transform left-1/2 -translate-x-1/2 text-center bottom-full mb-3 p-3 bg-neon-blue text-salt-white text-sm font-light rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-4 group-hover:scale-105 group-hover:shadow-lg transition-all duration-300 ease-in-out">
+                They call me Bull sometimes
+              </span>
+            </span>
           </h1>
           <h2 className="text-lg md:text-xl font-medium pb-4">
             Frontend Developer based in Malta

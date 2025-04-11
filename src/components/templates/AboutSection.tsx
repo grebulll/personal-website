@@ -59,6 +59,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
+          className="py-10"
         >
           <h3 className="text-3xl font-medium mb-4">My Journey</h3>
           <div className="flex flex-row flex-wrap gap-8 justify-center">
@@ -82,6 +83,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          className="py-10"
         >
           <h3 className="text-3xl font-medium mt-8 mb-6">Core Skills</h3>
           <div className="flex flex-row flex-wrap gap-8 justify-center">
