@@ -37,7 +37,7 @@ const timelineEvents = [
 export default function AboutSection() {
   return (
     <section
-      className="min-h-screen content-center py-20 text-gunmetal-black"
+      className="min-h-screen content-center py-20 text-gunmetal-black dark:text-salt-white"
       id="about"
     >
       <div className="max-w-7xl mx-auto gap-12 items-center">
@@ -61,10 +61,9 @@ export default function AboutSection() {
         >
           <h3 className="text-3xl font-medium mt-8 mb-6">Core Skills</h3>
           <TiltCard tiltIntensity={1}>
-            <div className="bg-gunmetal-black text-mint-green font-mono p-6 rounded-xl shadow-lg text-left text-xl leading-relaxed transition-all duration-300 hover:shadow-2xl hover:ring-4 hover:ring-mint-green hover:bg-black">
+            <div className="hover:cursor-text bg-gunmetal-black dark:bg-salt-white text-mint-green dark:text-gunmetal-black hover:dark:text-mint-green font-mono p-6 rounded-xl shadow-lg text-left text-xl leading-relaxed transition-all duration-300 hover:shadow-2xl hover:ring-4 hover:ring-mint-green hover:bg-black">
               <p>
-                <span className="text-mint-green">$</span> cat
-                my-core-skills.txt
+                <span>$</span> cat my-core-skills.txt
                 <span className="animate-blink">█</span>
               </p>
               <p>▶ React ⚛️</p>
@@ -90,13 +89,11 @@ export default function AboutSection() {
             {timelineEvents.map((event, index) => (
               <div key={index} className="flex items-center">
                 <TiltCard>
-                  <div className="md:w-80 min-h-[200px] bg-gunmetal-black text-salt-white p-6 rounded-xl shadow-lg hover:bg-mint-green hover:text-gunmetal-black transition-all flex flex-col">
+                  <div className="md:w-80 min-h-[200px] bg-gunmetal-black dark:bg-salt-white text-salt-white hover:text-gunmetal-black dark:text-gunmetal-black hover:bg-mint-green dark:hover:bg-gunmetal-black dark:hover:text-mint-green p-6 rounded-xl shadow-lg transition-all flex flex-col">
                     <h4 className="font-semibold text-xl mb-4">
                       {event.year} - {event.title}
                     </h4>
-                    <p className="text-sm text-salt-white">
-                      {event.description}
-                    </p>
+                    <p className="text-sm">{event.description}</p>
                   </div>
                 </TiltCard>
               </div>

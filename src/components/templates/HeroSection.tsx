@@ -79,10 +79,10 @@ export const HeroSection = () => {
 
   return (
     <div className="w-full content-center min-h-screen relative z-10 transition-background duration-300 ease-out">
-      <div className="justify-self-center flex md:flex-row flex-col font-inter text-gunmetal-black items-center">
+      <div className="justify-self-center flex md:flex-row flex-col font-inter text-gunmetal-black dark:text-salt-white items-center">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-neon-blue rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-          <div className="absolute bottom-20 right-20 w-32 h-32 bg-gunmetal-black rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+          <div className="absolute top-20 left-20 w-32 h-32 bg-neon-blue dark:bg-salt-white rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+          <div className="absolute bottom-20 right-20 w-32 h-32 bg-gunmetal-black dark:bg-mint-green rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
         </div>
 
         <div
@@ -93,12 +93,12 @@ export const HeroSection = () => {
             Hi, I'm{' '}
             <span
               ref={nameRef}
-              className="text-gunmetal-black cursor-pointer relative inline-block"
+              className="text-gunmetal-black dark:text-salt-white cursor-pointer relative inline-block"
             >
               Gabriel
               <span
                 ref={tooltipRef}
-                className="absolute left-1/2 bottom-full mb-3 w-max -translate-x-1/2 text-center p-3 bg-neon-blue text-salt-white text-sm font-light rounded-lg shadow-lg will-change-transform pointer-events-none"
+                className="absolute left-1/2 bottom-full mb-3 w-max -translate-x-1/2 text-center p-3 bg-neon-blue dark:bg-mint-green text-salt-white dark:text-gunmetal-black text-sm font-light rounded-lg shadow-lg will-change-transform pointer-events-none"
               >
                 some people call me{' '}
                 <span ref={anotherTooltipRef} className="font-bold">
@@ -120,7 +120,14 @@ export const HeroSection = () => {
           </p>
 
           <div className="flex gap-2 justify-center">
-            <FancyButton title="Contact me" />
+            <FancyButton
+              title="Contact me"
+              backgroundColor="bg-gunmetal-black dark:bg-salt-white"
+              hoverBackgroundColor="dark:bg-mint-green"
+              textColor="text-salt-white dark:text-gunmetal-black"
+              hoverTextColor="hover:text-gunmetal-black dark:hover:text-gunmetal-black"
+              flairColor="bg-mint-green dark:bg-mint-green"
+            />
           </div>
         </div>
         <AvatarModelScene />

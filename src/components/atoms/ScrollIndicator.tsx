@@ -1,6 +1,8 @@
 export function ScrollIndicator() {
   const handleScrollToAbout = () => {
     const aboutSection = document.getElementById('about');
+    if (!aboutSection) return;
+
     aboutSection.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -11,7 +13,7 @@ export function ScrollIndicator() {
     >
       <div className="animate-bounce flex flex-col items-center cursor-pointer">
         <svg
-          className="w-6 h-6 text-gunmetal-black"
+          className="w-6 h-6 text-gunmetal-black dark:text-salt-white"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
