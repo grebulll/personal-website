@@ -61,11 +61,11 @@ export default function AboutSection() {
         >
           <h3 className="text-3xl font-medium mt-8 mb-6">Core Skills</h3>
           <TiltCard tiltIntensity={1}>
-            <div className="bg-gunmetal-black text-mint-green font-mono p-6 rounded-xl shadow-lg text-left text-sm sm:text-base leading-relaxed transition-all duration-300 hover:shadow-2xl hover:ring-4 hover:ring-mint-green hover:bg-black">
+            <div className="bg-gunmetal-black text-mint-green font-mono p-6 rounded-xl shadow-lg text-left text-xl leading-relaxed transition-all duration-300 hover:shadow-2xl hover:ring-4 hover:ring-mint-green hover:bg-black">
               <p>
                 <span className="text-mint-green">$</span> cat
                 my-core-skills.txt
-                <span className="animate-pulse">█</span>
+                <span className="animate-blink">█</span>
               </p>
               <p>▶ React ⚛️</p>
               <p>▶ Vue 🌱</p>

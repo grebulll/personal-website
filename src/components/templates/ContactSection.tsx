@@ -20,10 +20,32 @@ export default function ContactSection() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('Your message has been sent! ✨');
-    setFormData({ name: '', email: '', message: '' });
+    setStatus('Sending message...');
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/send-email`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
+        setStatus('Your message has been sent!');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('Something went wrong. Please try again.');
+      }
+    } catch {
+      setStatus('Error sending message. Please try again.');
+    }
+
     setTimeout(() => setStatus(null), 4000);
   };
 

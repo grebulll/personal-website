@@ -54,7 +54,7 @@ export default function App() {
     `,
       }}
     >
-      <div className="container py-20 justify-self-center lg:px-44 px-8">
+      <div className="container pb-20 justify-self-center lg:px-44 px-8">
         <HeroSection />
         <AboutSection />
         <ContactSection />
