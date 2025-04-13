@@ -61,7 +61,7 @@ export default function AboutSection() {
         >
           <h3 className="text-3xl font-medium mt-8 mb-6">Core Skills</h3>
           <TiltCard tiltIntensity={1}>
-            <div className="hover:cursor-text bg-gunmetal-black dark:bg-salt-white text-mint-green dark:text-gunmetal-black hover:dark:text-mint-green font-mono p-6 rounded-xl shadow-lg text-left text-xl leading-relaxed transition-all duration-300 hover:shadow-2xl hover:ring-4 hover:ring-mint-green hover:bg-black">
+            <div className="hover:cursor-text bg-gunmetal-black dark:bg-salt-white text-mint-green dark:text-gunmetal-black hover:dark:text-mint-green font-mono p-6 rounded-xl shadow-lg text-left text-xl leading-relaxed transition-all  hover:shadow-2xl hover:ring-4 hover:ring-mint-green hover:bg-black">
               <p>
                 <span>$</span> cat my-core-skills.txt
                 <span className="animate-blink">█</span>

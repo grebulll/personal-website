@@ -1,10 +1,9 @@
-import { useRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HeroSection } from './components/templates/HeroSection';
 import AboutSection from './components/templates/AboutSection';
 import ContactSection from './components/templates/ContactSection';
 
 export default function App() {
-  const backgroundRef = useRef<HTMLDivElement>(null);
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
@@ -24,57 +23,8 @@ export default function App() {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!backgroundRef.current) return;
-
-      const { clientX, clientY } = e;
-      const { left, top, width, height } =
-        backgroundRef.current.getBoundingClientRect();
-      const x = (clientX - left) / width;
-      const y = (clientY - top) / height;
-
-      backgroundRef.current.style.background =
-        theme === 'dark'
-          ? `
-          
-        `
-          : `
-          radial-gradient(
-            circle at ${x * 100}% ${y * 100}%,
-            rgba(31, 41, 55, 0.1) 0%,
-            rgba(249, 250, 251, 1) 20%,
-            rgba(249, 250, 251, 1) 50%
-          ),
-          linear-gradient(
-            to top right,
-            #F9FAFB,
-            #F9FAFB
-          )
-        `;
-    };
-
-    const container = backgroundRef.current;
-    if (!container) return;
-    container.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      container.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [theme]);
-
   return (
-    <div
-      data-theme={theme}
-      className="min-h-screen bg-salt-white dark:bg-gunmetal-black relative overflow-hidden transition-colors duration-300 ease-in-out"
-      ref={backgroundRef}
-      style={{
-        background:
-          theme === 'dark'
-            ? `linear-gradient(to bottom right, #111827, #111827)`
-            : `linear-gradient(to bottom right, #F9FAFB, #F9FAFB)`,
-      }}
-    >
+    <div data-theme={theme} className="min-h-screen relative overflow-hidden">
       <button
         onClick={toggleTheme}
         className="hover:cursor-pointer fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300"
@@ -114,10 +64,12 @@ export default function App() {
           </svg>
         )}
       </button>
-      <div className="container pb-20 justify-self-center lg:px-44 px-8">
-        <HeroSection />
-        <AboutSection />
-        <ContactSection />
+      <div className="bg-salt-white dark:bg-gunmetal-black transition-colors">
+        <div className="container pb-20 justify-self-center lg:px-44 px-8">
+          <HeroSection />
+          <AboutSection />
+          <ContactSection />
+        </div>
       </div>
     </div>
   );
