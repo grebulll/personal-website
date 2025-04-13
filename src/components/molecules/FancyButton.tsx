@@ -10,6 +10,7 @@ interface FancyButtonProps {
   hoverTextColor?: string;
   flairColor?: string;
   className?: string;
+  onClick?: () => void;
 }
 
 export const FancyButton = ({
@@ -21,6 +22,7 @@ export const FancyButton = ({
   hoverTextColor = 'hover:text-gunmetal-black',
   flairColor = 'bg-mint-green',
   className = '',
+  onClick,
 }: FancyButtonProps) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const flairRef = useRef<HTMLDivElement>(null);
@@ -80,7 +82,8 @@ export const FancyButton = ({
     <button
       type={type ?? 'button'}
       ref={buttonRef}
-      className={`relative inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg overflow-hidden group hover:cursor-pointer transition-all ${backgroundColor} ${hoverBackgroundColor} ${textColor} ${hoverTextColor} ${className}`}
+      onClick={onClick}
+      className={`hover:cursor-pointer relative inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg overflow-hidden group transition-all ${backgroundColor} ${hoverBackgroundColor} ${textColor} ${hoverTextColor} ${className}`}
     >
       <div
         ref={flairRef}

@@ -65,7 +65,7 @@ export default function App() {
         )}
       </button>
       <div className="bg-salt-white dark:bg-gunmetal-black transition-colors">
-        <div className="container pb-20 justify-self-center lg:px-44 px-8">
+        <div className="container md:pt-0 pb-20 pt-20 justify-self-center lg:px-44 px-8">
           <HeroSection />
           <AboutSection />
           <ContactSection />

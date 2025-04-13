@@ -133,11 +133,11 @@ export default function ContactSection() {
             <FancyButton
               type="submit"
               title="Send Message"
-              flairColor="bg-neon-blue dark:bg-mint-green"
+              flairColor="bg-mint-green dark:bg-mint-green"
               backgroundColor="bg-salt-white dark:bg-gunmetal-black"
               textColor="text-gunmetal-black dark:text-salt-white"
-              hoverBackgroundColor="hover:bg-salt-white dark:hover:bg-gunmetal-black"
-              hoverTextColor="hover:text-salt-white dark:hover:text-gunmetal-black"
+              hoverBackgroundColor="hover:bg-mint-green dark:hover:bg-gunmetal-black"
+              hoverTextColor="hover:text-gunmetal-black dark:hover:text-gunmetal-black"
             />
           </div>
         </form>

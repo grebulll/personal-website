@@ -10,6 +10,13 @@ export const HeroSection = () => {
   const anotherTooltipRef = useRef<HTMLSpanElement>(null);
   const heroContentRef = useRef<HTMLDivElement>(null);
 
+  const handleScrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (!contactSection) return;
+
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+  };
+
   useEffect(() => {
     if (
       !nameRef.current ||
@@ -121,6 +128,7 @@ export const HeroSection = () => {
 
           <div className="flex gap-2 justify-center">
             <FancyButton
+              onClick={handleScrollToContact}
               title="Contact me"
               backgroundColor="bg-gunmetal-black dark:bg-salt-white"
               hoverBackgroundColor="dark:bg-mint-green"
