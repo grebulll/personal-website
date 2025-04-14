@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import * as THREE from 'three';
 
 function AvatarModel() {
-  const { scene } = useGLTF('../floating_island.glb');
+  const { scene } = useGLTF('/floating_island.glb');
   return <primitive object={scene} scale={0.018} />;
 }
 
