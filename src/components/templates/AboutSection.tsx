@@ -1,5 +1,10 @@
 import { motion } from 'framer-motion';
 import TiltCard from '../../TiltCard';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const timelineEvents = [
   {
@@ -35,6 +40,49 @@ const timelineEvents = [
 ];
 
 export default function AboutSection() {
+  const journeyRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!journeyRef.current) return;
+    const elements = journeyRef.current.querySelectorAll('.journey-step');
+
+    elements.forEach((el, index) => {
+      const direction = index % 2 === 0 ? -100 : 100;
+
+      gsap.fromTo(
+        el,
+        { x: direction, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 80%',
+            end: 'top 20%',
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    const line = document.getElementById('timeline-line');
+    const journeyHeight = journeyRef.current.scrollHeight;
+
+    gsap.set(line, { height: 0 });
+
+    gsap.to(line, {
+      height: journeyHeight,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: journeyRef.current,
+        start: 'top center',
+        end: 'bottom bottom',
+        scrub: 1,
+      },
+    });
+  }, []);
+
   return (
     <section
       className="min-h-screen content-center py-20 text-gunmetal-black dark:text-salt-white"
@@ -53,6 +101,7 @@ export default function AboutSection() {
             I’m always excited to learn new things and tackle challenges.
           </p>
         </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +112,7 @@ export default function AboutSection() {
           <TiltCard tiltIntensity={1}>
             <div className="hover:cursor-text bg-gunmetal-black dark:bg-salt-white text-mint-green dark:text-gunmetal-black hover:dark:text-mint-green font-mono p-6 rounded-xl shadow-lg text-left text-xl leading-relaxed transition-all  hover:shadow-2xl hover:ring-4 hover:ring-mint-green hover:bg-black">
               <p>
-                <span>$</span> cat my-core-skills.txt
+                npm run dev
                 <span className="animate-blink">█</span>
               </p>
               <p>▶ React ⚛️</p>
@@ -78,28 +127,44 @@ export default function AboutSection() {
             </div>
           </TiltCard>
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="py-10"
-        >
+
+        <div className="py-10">
           <h3 className="text-3xl font-medium mb-4">My Journey</h3>
-          <div className="flex flex-row flex-wrap gap-8 justify-center">
+          <div
+            ref={journeyRef}
+            className="relative flex flex-col items-center justify-center"
+          >
+            <div
+              id="timeline-line"
+              className="md:block hidden rounded-t-full rounded-b-full absolute w-1 bg-gunmetal-black dark:bg-mint-green top-0 left-1/2 transform -translate-x-1/2 origin-top z-0"
+            />
             {timelineEvents.map((event, index) => (
-              <div key={index} className="flex items-center">
-                <TiltCard>
-                  <div className="md:w-80 min-h-[200px] bg-gunmetal-black dark:bg-salt-white text-salt-white hover:text-gunmetal-black dark:text-gunmetal-black hover:bg-mint-green dark:hover:bg-gunmetal-black dark:hover:text-mint-green p-6 rounded-xl shadow-lg transition-all flex flex-col">
-                    <h4 className="font-semibold text-xl mb-4">
-                      {event.year} - {event.title}
-                    </h4>
-                    <p className="text-sm">{event.description}</p>
-                  </div>
-                </TiltCard>
+              <div
+                key={index}
+                className={`journey-step relative z-10 mb-12 w-full flex ${
+                  index % 2 === 0
+                    ? 'justify-start md:pr-10'
+                    : 'justify-end md:pl-10'
+                }`}
+              >
+                <div
+                  className={`flex justify-${
+                    index % 2 === 0 ? 'start xl:ml-28' : 'end xl:mr-28'
+                  } items-center`}
+                >
+                  <TiltCard>
+                    <div className="md:w-80 min-h-[200px] bg-gunmetal-black dark:bg-salt-white text-salt-white hover:text-gunmetal-black dark:text-gunmetal-black hover:bg-mint-green dark:hover:bg-mint-green dark:hover:text-gunmetal-black p-6 rounded-xl shadow-lg transition-all flex flex-col">
+                      <h4 className="font-semibold text-xl mb-4">
+                        {event.year} - {event.title}
+                      </h4>
+                      <p className="text-sm">{event.description}</p>
+                    </div>
+                  </TiltCard>
+                </div>
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

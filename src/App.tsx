@@ -27,7 +27,7 @@ export default function App() {
     <div data-theme={theme} className="min-h-screen relative overflow-hidden">
       <button
         onClick={toggleTheme}
-        className="hover:cursor-pointer fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300"
+        className="hover:cursor-pointer fixed top-4 right-4 z-50 p-2 rounded-full bg-gunmetal-black dark:bg-salt-white text-salt-white dark:text-gunmetal-black shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
         aria-label={
           theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
         }

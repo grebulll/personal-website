@@ -64,7 +64,7 @@ export default function ContactSection() {
       </motion.h2>
 
       <motion.div
-        className=" bg-gunmetal-black dark:bg-salt-white p-8 rounded-2xl shadow-lg"
+        className=" bg-gunmetal-black border border-salt-white p-8 rounded-2xl shadow-lg"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -74,7 +74,7 @@ export default function ContactSection() {
             <div>
               <label
                 htmlFor="name"
-                className="block text-lg text-salt-white dark:text-gunmetal-black font-medium mb-2"
+                className="block text-lg text-salt-white font-medium mb-2"
               >
                 Your Name
               </label>
@@ -82,7 +82,7 @@ export default function ContactSection() {
                 type="text"
                 id="name"
                 name="name"
-                className="w-full p-3 border border-salt-white dark:border-gunmetal-black text-salt-white dark:text-gunmetal-black rounded-md"
+                className="w-full p-3 border border-salt-white text-salt-white rounded-md"
                 placeholder="Your name"
                 value={formData.name}
                 onChange={handleChange}
@@ -93,7 +93,7 @@ export default function ContactSection() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-lg text-salt-white dark:text-gunmetal-black font-medium mb-2"
+                className="block text-lg text-salt-white font-medium mb-2"
               >
                 Your Email
               </label>
@@ -101,7 +101,7 @@ export default function ContactSection() {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full p-3 border border-salt-white dark:border-gunmetal-black text-salt-white dark:text-gunmetal-black rounded-md"
+                className="w-full p-3 border border-salt-white text-salt-white rounded-md"
                 placeholder="Your email"
                 value={formData.email}
                 onChange={handleChange}
@@ -113,14 +113,14 @@ export default function ContactSection() {
           <div className="mt-6">
             <label
               htmlFor="message"
-              className="block text-lg text-salt-white dark:text-gunmetal-black font-medium mb-2"
+              className="block text-lg text-salt-white font-medium mb-2"
             >
               Your Message
             </label>
             <textarea
               id="message"
               name="message"
-              className="w-full p-3 border border-salt-white dark:border-gunmetal-black text-salt-white dark:text-gunmetal-black rounded-md"
+              className="w-full p-3 border border-salt-white text-salt-white rounded-md"
               placeholder="Write your message here..."
               rows={6}
               value={formData.message}
@@ -134,9 +134,9 @@ export default function ContactSection() {
               type="submit"
               title="Send Message"
               flairColor="bg-mint-green dark:bg-mint-green"
-              backgroundColor="bg-salt-white dark:bg-gunmetal-black"
-              textColor="text-gunmetal-black dark:text-salt-white"
-              hoverBackgroundColor="hover:bg-mint-green dark:hover:bg-gunmetal-black"
+              backgroundColor="bg-salt-white"
+              textColor="text-gunmetal-black"
+              hoverBackgroundColor="hover:bg-salt-white"
               hoverTextColor="hover:text-gunmetal-black dark:hover:text-gunmetal-black"
             />
           </div>
