@@ -59,8 +59,7 @@ export default function AboutSection() {
           scrollTrigger: {
             trigger: el,
             start: 'top 80%',
-            end: 'top 20%',
-            scrub: true,
+            toggleActions: 'play none none reverse',
           },
         }
       );
