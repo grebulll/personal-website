@@ -3,6 +3,7 @@ import { AvatarModelScene } from '../organisms/AvatarModelScene';
 import { FancyButton } from '../molecules/FancyButton';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 export const HeroSection = () => {
   const nameRef = useRef<HTMLSpanElement>(null);
@@ -120,13 +121,34 @@ export const HeroSection = () => {
           <p className="text-base md:text-lg font-light mb-8">
             I build thoughtful interfaces with React and Vue.js
           </p>
-          <p className="text-base md:text-lg font-light mb-8">
+          <p className="text-base md:text-lg font-light">
             With 3 years of experience crafting digital experiences, I
             specialize in building responsive, accessible web applications that
             users love.
           </p>
-
-          <div className="flex gap-2 justify-center">
+          <div className="flex flex-row my-8 gap-2 md:justify-start justify-center">
+            <a
+              href="https://www.linkedin.com/in/gabriel-cini-b36687201/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin
+                size={30}
+                className="hover:text-neon-blue dark:hover:text-mint-green transition-colors"
+              />
+            </a>
+            <a
+              href="https://github.com/grebulll"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub
+                size={30}
+                className="hover:text-neon-blue dark:hover:text-mint-green transition-colors"
+              />
+            </a>
+          </div>
+          <div className="flex gap-2 md:justify-start justify-center">
             <FancyButton
               onClick={handleScrollToContact}
               title="Contact me"

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { HeroSection } from './components/templates/HeroSection';
 import AboutSection from './components/templates/AboutSection';
 import ContactSection from './components/templates/ContactSection';
+import { Footer } from './components/templates/Footer';
 
 export default function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -69,6 +70,7 @@ export default function App() {
           <HeroSection />
           <AboutSection />
           <ContactSection />
+          <Footer />
         </div>
       </div>
     </div>
