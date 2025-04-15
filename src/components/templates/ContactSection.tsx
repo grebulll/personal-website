@@ -7,6 +7,7 @@ export default function ContactSection() {
     name: '',
     email: '',
     message: '',
+    website: '',
   });
   const [status, setStatus] = useState<string | null>(null);
 
@@ -35,7 +36,7 @@ export default function ContactSection() {
 
       if (response.ok) {
         setStatus('Your message has been sent!');
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', email: '', message: '', website: '' });
       } else {
         setStatus('Something went wrong. Please try again.');
       }
@@ -123,6 +124,13 @@ export default function ContactSection() {
               value={formData.message}
               onChange={handleChange}
               required
+            />
+            <input
+              type="text"
+              name="website"
+              style={{ display: 'none' }}
+              tabIndex={-1}
+              autoComplete="off"
             />
           </div>
 
