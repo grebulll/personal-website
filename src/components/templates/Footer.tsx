@@ -54,6 +54,18 @@ export const Footer = () => {
             ,{' '}
             <a
               className="font-bold"
+              href="https://react-hook-form.com/"
+              target="_blank"
+            >
+              React Hook Form
+            </a>
+            ,{' '}
+            <a className="font-bold" href="https://zod.dev/" target="_blank">
+              Zod
+            </a>
+            ,{' '}
+            <a
+              className="font-bold"
               href="https://r3f.docs.pmnd.rs/"
               target="_blank"
             >

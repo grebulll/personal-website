@@ -1,28 +1,31 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FancyButton } from '../molecules/FancyButton';
+import { z } from 'zod';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-    website: '',
+  type ContactFormData = z.infer<typeof contactSchema>;
+  const contactSchema = z.object({
+    name: z.string().min(1, 'Name is required'),
+    email: z.string().min(1, 'Email is required').email('Invalid email'),
+    message: z.string().min(1, 'Message is required'),
+    website: z.string().optional(),
   });
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  });
+
   const [status, setStatus] = useState<string | null>(null);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (data: ContactFormData) => {
     setStatus('Sending message...');
 
     try {
@@ -31,12 +34,12 @@ export default function ContactSection() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(data),
       });
 
       if (response.ok) {
         setStatus('Your message has been sent!');
-        setFormData({ name: '', email: '', message: '', website: '' });
+        reset();
       } else {
         setStatus('Something went wrong. Please try again.');
       }
@@ -50,7 +53,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="pt-20 text-gunmetal-black dark:text-salt-white font-inter"
+      className="text-gunmetal-black dark:text-salt-white font-inter"
     >
       <motion.h2
         className="text-4xl font-bold text-center mb-10"
@@ -62,72 +65,69 @@ export default function ContactSection() {
       </motion.h2>
 
       <motion.div
-        className=" bg-gunmetal-black border border-salt-white p-8 rounded-2xl shadow-lg"
+        className="bg-gunmetal-black border border-salt-white p-8 rounded-2xl shadow-lg"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label
-                htmlFor="name"
-                className="block text-lg text-salt-white font-medium mb-2"
-              >
+              <label htmlFor="name" className="block text-lg font-medium mb-2">
                 Your Name
               </label>
               <input
-                type="text"
                 id="name"
-                name="name"
-                className="w-full p-3 border border-salt-white text-salt-white rounded-md"
+                {...register('name')}
+                className="w-full p-3 border rounded-md text-salt-white bg-transparent"
                 placeholder="Your name"
-                value={formData.name}
-                onChange={handleChange}
-                required
               />
+              {errors.name && (
+                <p className="text-red-400 mt-1 text-sm">
+                  {errors.name.message}
+                </p>
+              )}
             </div>
 
             <div>
-              <label
-                htmlFor="email"
-                className="block text-lg text-salt-white font-medium mb-2"
-              >
+              <label htmlFor="email" className="block text-lg font-medium mb-2">
                 Your Email
               </label>
               <input
-                type="email"
                 id="email"
-                name="email"
-                className="w-full p-3 border border-salt-white text-salt-white rounded-md"
+                type="email"
+                {...register('email')}
+                className="w-full p-3 border rounded-md text-salt-white bg-transparent"
                 placeholder="Your email"
-                value={formData.email}
-                onChange={handleChange}
-                required
               />
+              {errors.email && (
+                <p className="text-red-400 mt-1 text-sm">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
           </div>
 
           <div className="mt-6">
-            <label
-              htmlFor="message"
-              className="block text-lg text-salt-white font-medium mb-2"
-            >
+            <label htmlFor="message" className="block text-lg font-medium mb-2">
               Your Message
             </label>
             <textarea
               id="message"
-              name="message"
-              className="w-full p-3 border border-salt-white text-salt-white rounded-md"
-              placeholder="Write your message here..."
               rows={6}
-              value={formData.message}
-              onChange={handleChange}
-              required
+              {...register('message')}
+              className="w-full p-3 border rounded-md text-salt-white bg-transparent"
+              placeholder="Write your message here..."
             />
+            {errors.message && (
+              <p className="text-red-400 mt-1 text-sm">
+                {errors.message.message}
+              </p>
+            )}
+
             <input
               type="text"
-              name="website"
+              {...register('website')}
               style={{ display: 'none' }}
               tabIndex={-1}
               autoComplete="off"
@@ -137,7 +137,7 @@ export default function ContactSection() {
           <div className="mt-6 text-center">
             <FancyButton
               type="submit"
-              title="Send Message"
+              title={isSubmitting ? 'Sending...' : 'Send Message'}
               flairColor="bg-mint-green dark:bg-mint-green"
               backgroundColor="bg-salt-white"
               textColor="text-gunmetal-black"
@@ -147,11 +147,11 @@ export default function ContactSection() {
           </div>
         </form>
 
-        {status ? (
+        {status && (
           <div className="mt-6 text-center text-mint-green font-semibold">
             {status}
           </div>
-        ) : null}
+        )}
       </motion.div>
     </section>
   );

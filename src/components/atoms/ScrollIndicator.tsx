@@ -1,4 +1,21 @@
+import { useEffect, useState } from 'react';
+
 export function ScrollIndicator() {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleScrollToAbout = () => {
     const aboutSection = document.getElementById('about');
     if (!aboutSection) return;
@@ -8,7 +25,9 @@ export function ScrollIndicator() {
 
   return (
     <div
-      className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 md:block hidden`}
+      className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 md:block hidden ${
+        visible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      }`}
       onClick={handleScrollToAbout}
     >
       <div className="animate-bounce flex flex-col items-center cursor-pointer">

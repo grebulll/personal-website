@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import TiltCard from '../../TiltCard';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Typewriter } from 'react-simple-typewriter';
+import { useInView } from 'react-intersection-observer';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,6 +43,20 @@ const timelineEvents = [
 
 export default function AboutSection() {
   const journeyRef = useRef<HTMLDivElement>(null);
+  const { ref: typeRef, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.6,
+  });
+
+  const [typingDone, setTypingDone] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      const totalTypingTime = 'npm run dev'.length * 50 + 600;
+      const timer = setTimeout(() => setTypingDone(true), totalTypingTime);
+      return () => clearTimeout(timer);
+    }
+  }, [inView]);
 
   useEffect(() => {
     if (!journeyRef.current) return;
@@ -109,25 +125,48 @@ export default function AboutSection() {
         >
           <h3 className="text-3xl font-medium mt-8 mb-6">Core Skills</h3>
           <TiltCard tiltIntensity={1}>
-            <div className="hover:cursor-text bg-gunmetal-black dark:bg-salt-white text-mint-green dark:text-gunmetal-black hover:dark:text-mint-green font-mono p-6 rounded-xl shadow-lg text-left text-xl leading-relaxed transition-all  hover:shadow-2xl hover:ring-4 hover:ring-mint-green hover:bg-black">
-              <p>
-                npm run dev
-                <span className="animate-blink">█</span>
-              </p>
-              <p>▶ React ⚛️</p>
-              <p>▶ Vue 🌱</p>
-              <p>▶ Nuxt 🧩</p>
-              <p>▶ Pinia 🍍</p>
-              <p>▶ Redux ♻️</p>
-              <p>▶ Expo 📱</p>
-              <p>▶ Tailwind 💨</p>
-              <p>▶ JavaScript ✨</p>
-              <p>▶ Git 🔧</p>
+            <div
+              ref={typeRef}
+              className="hover:cursor-text bg-gunmetal-black dark:bg-salt-white text-mint-green dark:text-gunmetal-black hover:dark:text-mint-green font-mono p-6 rounded-xl shadow-lg text-left text-xl leading-relaxed transition-all hover:shadow-2xl hover:ring-4 hover:ring-mint-green hover:bg-black"
+            >
+              {inView && (
+                <p>
+                  <Typewriter
+                    words={['npm run dev']}
+                    loop={1}
+                    cursor
+                    cursorStyle="█"
+                    typeSpeed={50}
+                    deleteSpeed={0}
+                    delaySpeed={1000}
+                    onDone={() => setTypingDone(true)}
+                  />
+                </p>
+              )}
+
+              {typingDone && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="mt-4"
+                >
+                  <p>▶ React ⚛️</p>
+                  <p>▶ Vue 🌱</p>
+                  <p>▶ Nuxt 🧩</p>
+                  <p>▶ Pinia 🍍</p>
+                  <p>▶ Redux ♻️</p>
+                  <p>▶ Expo 📱</p>
+                  <p>▶ Tailwind 💨</p>
+                  <p>▶ JavaScript ✨</p>
+                  <p>▶ Git 🔧</p>
+                </motion.div>
+              )}
             </div>
           </TiltCard>
         </motion.div>
 
-        <div className="py-10">
+        <div className="pt-10">
           <h3 className="text-3xl font-medium mb-4">My Journey</h3>
           <div
             ref={journeyRef}
@@ -140,7 +179,7 @@ export default function AboutSection() {
             {timelineEvents.map((event, index) => (
               <div
                 key={index}
-                className={`journey-step relative z-10 mb-12 w-full flex ${
+                className={`journey-step relative z-10 not-last:mb-12 w-full flex ${
                   index % 2 === 0
                     ? 'justify-start md:pr-10'
                     : 'justify-end md:pl-10'
