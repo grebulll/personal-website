@@ -139,7 +139,6 @@ export default function AboutSection() {
                     typeSpeed={50}
                     deleteSpeed={0}
                     delaySpeed={1000}
-                    onDone={() => setTypingDone(true)}
                   />
                 </p>
               )}
