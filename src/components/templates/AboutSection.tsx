@@ -127,7 +127,7 @@ export default function AboutSection() {
           <TiltCard tiltIntensity={1}>
             <div
               ref={typeRef}
-              className="hover:cursor-text bg-gunmetal-black dark:bg-salt-white text-mint-green dark:text-gunmetal-black hover:dark:text-mint-green font-mono p-6 rounded-xl shadow-lg text-left text-xl leading-relaxed transition-all hover:shadow-2xl hover:ring-4 hover:ring-mint-green hover:bg-black"
+              className="min-h-[389px] hover:cursor-text bg-gunmetal-black dark:bg-salt-white text-mint-green dark:text-gunmetal-black hover:dark:text-mint-green font-mono p-6 rounded-xl shadow-lg text-left text-xl leading-relaxed transition-all hover:shadow-2xl hover:ring-4 hover:ring-mint-green hover:bg-black"
             >
               {inView && (
                 <p>
@@ -142,23 +142,36 @@ export default function AboutSection() {
                   />
                 </p>
               )}
-
               {typingDone && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
+                  transition={{
+                    staggerChildren: 0.3,
+                  }}
                   className="mt-4"
                 >
-                  <p>▶ React ⚛️</p>
-                  <p>▶ Vue 🌱</p>
-                  <p>▶ Nuxt 🧩</p>
-                  <p>▶ Pinia 🍍</p>
-                  <p>▶ Redux ♻️</p>
-                  <p>▶ Expo 📱</p>
-                  <p>▶ Tailwind 💨</p>
-                  <p>▶ JavaScript ✨</p>
-                  <p>▶ Git 🔧</p>
+                  {[
+                    'React ⚛️',
+                    'Vue 🌱',
+                    'Nuxt 🧩',
+                    'Pinia 🍍',
+                    'Redux ♻️',
+                    'Expo 📱',
+                    'Tailwind 💨',
+                    'JavaScript ✨',
+                    'Git 🔧',
+                  ].map((skill, index) => (
+                    <motion.p
+                      key={index}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{
+                        duration: 0,
+                        delay: index * 0.03,
+                      }}
+                    >
+                      ▶ {skill}
+                    </motion.p>
+                  ))}
                 </motion.div>
               )}
             </div>
