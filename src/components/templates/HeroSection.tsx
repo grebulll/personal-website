@@ -220,7 +220,7 @@ export const HeroSection = () => {
           </div>
         </div>
         <div
-          className="w-full md:w-1/2 flex justify-center items-center relative"
+          className="md:mt-0 mt-2 w-full md:w-1/2 flex justify-center items-center relative"
           onMouseEnter={() => {
             if (imgTooltipRef.current) {
               gsap.to(imgTooltipRef.current, {
@@ -246,7 +246,7 @@ export const HeroSection = () => {
         >
           <div className="relative">
             <img
-              src="/portfolio_avatar_image_4.png"
+              src="/portfolio_avatar_image.webp"
               alt="Avatar"
               className="w-full h-auto max-w-[500px] mx-auto"
             />

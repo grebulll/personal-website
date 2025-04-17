@@ -66,12 +66,12 @@ export const Footer = () => {
             ,{' '}
             <a
               className="font-bold"
-              href="https://r3f.docs.pmnd.rs/"
+              href="https://www.blender.org/"
               target="_blank"
             >
-              React Three Fiber
-            </a>
-            ,{' '}
+              Blender
+            </a>{' '}
+            (for the 3d Model),{' '}
             <a
               className="font-bold"
               href="https://www.typescriptlang.org/"
