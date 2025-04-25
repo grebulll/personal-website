@@ -1,59 +1,27 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import TiltCard from '../../TiltCard';
+import { timelineEvents } from '../../constants/TimelineEvents';
 
 export const JourneySection = () => {
-  const timelineEvents = [
-    {
-      year: '2016',
-      title: 'Explored Coding for the First Time',
-      description:
-        'Embarked on my coding journey, initially experimenting with game development, and then delving into HTML, CSS, and JavaScript.',
-    },
-    {
-      year: '2017',
-      title: 'Pursued Advanced Diploma in IT',
-      description:
-        'Started a comprehensive 2-year Advanced Diploma in IT, gaining foundational skills in various technologies and IT principles.',
-    },
-    {
-      year: '2019',
-      title: 'Began Bachelor’s Degree in IT',
-      description:
-        'Embarked on a 3-year Bachelor’s Degree in IT, expanding my knowledge and technical skills in software development, systems, and networks.',
-    },
-    {
-      year: '2022',
-      title: 'Completed Apprenticeship Program',
-      description:
-        'Participated in a hands-on apprenticeship program, gaining real-world experience and deepening my understanding of the tech industry.',
-    },
-    {
-      year: '2022',
-      title: 'Joined as a Full-Time Frontend Developer',
-      description:
-        'Transitioned into a full-time role as a Frontend Developer, working on dynamic web applications and delivering seamless user experiences.',
-    },
-  ];
-
   const journeyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!journeyRef.current) return;
     const elements = journeyRef.current.querySelectorAll('.journey-step');
 
-    elements.forEach((el, index) => {
+    elements.forEach((element, index) => {
       const direction = index % 2 === 0 ? -100 : 100;
 
       gsap.fromTo(
-        el,
+        element,
         { x: direction, opacity: 0 },
         {
           x: 0,
           opacity: 1,
           duration: 1,
           scrollTrigger: {
-            trigger: el,
+            trigger: element,
             start: 'top 80%',
             toggleActions: 'play none none reverse',
           },
