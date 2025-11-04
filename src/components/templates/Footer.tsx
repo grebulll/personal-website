@@ -16,7 +16,7 @@ export const Footer = () => {
             />
           </a>
           <a
-            href="https://github.com/grebulll"
+            href="https://github.com/gab-cin"
             target="_blank"
             rel="noopener noreferrer"
           >
