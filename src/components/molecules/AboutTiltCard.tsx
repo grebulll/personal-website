@@ -11,7 +11,7 @@ export const AboutTitleCard = () => {
         </div>
         <div className="bg-salt-white px-4 p-2 rounded-b-xl space-y-4">
           <p className="font-light">
-            &gt; 3 years experience as a Full-time Frontend Developer
+            &gt; 4 years experience as a Full-time Frontend Developer
           </p>
           <p className="font-light">
             &gt; I love clean code, scalable components, and UI/UX

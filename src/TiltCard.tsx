@@ -4,12 +4,14 @@ interface TiltCardProps {
   children: ReactNode;
   tiltIntensity?: number;
   resetSpeed?: number;
+  className?: string;
 }
 
 const TiltCard = ({
   children,
   tiltIntensity = 10,
   resetSpeed = 300,
+  className = '',
 }: TiltCardProps) => {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
@@ -74,8 +76,7 @@ const TiltCard = ({
           : `transform ${resetSpeed}ms cubic-bezier(0.18, 0.89, 0.32, 1.28)`,
         transformStyle: 'preserve-3d',
       }}
-      className="hover:cursor-pointer justify-self-center w-full"
-    >
+      className={`hover:cursor-pointer ${className}`}    >
       {children}
     </div>
   );

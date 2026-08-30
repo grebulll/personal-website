@@ -1,32 +1,26 @@
 export const timelineEvents = [
   {
-    year: '2016',
-    title: 'Explored Coding for the First Time',
-    description:
-      'Embarked on my coding journey, initially experimenting with game development, and then delving into HTML, CSS, and JavaScript.',
-  },
-  {
-    year: '2017',
-    title: 'Pursued Advanced Diploma in IT',
-    description:
-      'Started a comprehensive 2-year Advanced Diploma in IT, gaining foundational skills in various technologies and IT principles.',
-  },
-  {
     year: '2019',
-    title: 'Began Bachelor’s Degree in IT',
+    title: 'First Developer Role',
     description:
-      'Embarked on a 3-year Bachelor’s Degree in IT, expanding my knowledge and technical skills in software development, systems, and networks.',
+      'Started as an apprentice web developer, building custom WordPress themes from scratch with Roots Sage and Laravel Blade.',
   },
   {
     year: '2022',
-    title: 'Completed Apprenticeship Program',
+    title: 'BSc and First Full-Time Role',
     description:
-      'Participated in a hands-on apprenticeship program, gaining real-world experience and deepening my understanding of the tech industry.',
+      'Finished my Software Development degree and joined Threls as a frontend developer, shipping a cross-platform healthcare app to web, iOS and Android.',
   },
   {
-    year: '2022',
-    title: 'Joined as a Full-Time Frontend Developer',
+    year: '2024',
+    title: 'Shipped to Malta International Airport',
     description:
-      'Transitioned into a full-time role as a Frontend Developer, working on dynamic web applications and delivering seamless user experiences.',
+      'Sole frontend developer on a self-service ticketing kiosk deployed at the airport, built from scratch in Vue 3 and TypeScript.',
+  },
+  {
+    year: '2025',
+    title: 'Moved into Trading Platforms',
+    description:
+      'Joined Rocketfin building OpenFin desktop applications for a capital markets client — design tokens, theming, component libraries and framework migrations.',
   },
 ];

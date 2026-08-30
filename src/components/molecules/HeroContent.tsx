@@ -44,20 +44,24 @@ export const HeroContent = ({
         Frontend Developer based in Malta
       </h2>
       <p className="text-base md:text-lg font-light mb-8">
-        I build thoughtful interfaces with React and Vue.js
+        I build design systems and trading interfaces with React and TypeScript.
       </p>
       <p className="text-base md:text-lg font-light">
-        With 3 years of experience crafting digital experiences, I specialize in
-        building responsive, accessible web applications that users love.
+        4 years of production experience. Currently building OpenFin desktop
+        trading applications for a capital markets client — design tokens,
+        theming, component libraries, and the framework migrations nobody
+        volunteers for.
       </p>
       <div className="flex flex-row my-8 gap-2 md:justify-start justify-center">
         <a
           href="https://www.linkedin.com/in/gabriel-cini-b36687201/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn profile"
         >
           <FaLinkedin
             size={30}
+            aria-hidden="true"
             className="hover:text-neon-blue dark:hover:text-mint-green transition-colors"
           />
         </a>
@@ -65,9 +69,11 @@ export const HeroContent = ({
           href="https://github.com/gab-cin"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="GitHub profile"
         >
           <FaGithub
             size={30}
+            aria-hidden="true"
             className="hover:text-neon-blue dark:hover:text-mint-green transition-colors"
           />
         </a>
@@ -82,7 +88,7 @@ export const HeroContent = ({
           hoverTextColor="hover:text-gunmetal-black dark:hover:text-gunmetal-black"
           flairColor="bg-mint-green dark:bg-mint-green"
         />
-        <a href="/CV.pdf" target="_blank">
+        <a href="/Gabriel_Cini_CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download my CV (PDF)">
           <FancyButton
             title="My CV"
             backgroundColor="bg-gunmetal-black dark:bg-salt-white"
