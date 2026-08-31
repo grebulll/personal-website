@@ -79,7 +79,7 @@ export const JourneySection = () => {
               <TiltCard className={`md:w-80 ${index % 2 === 0 ? 'md:ml-auto' : ''}`}>
                 <div className="p-6 rounded-xl shadow-lg transition-all flex flex-col bg-gunmetal-black dark:bg-salt-white text-salt-white dark:text-gunmetal-black hover:bg-mint-green hover:text-gunmetal-black dark:hover:bg-mint-green dark:hover:text-gunmetal-black">
                   <h4 className="font-semibold text-xl mb-4">
-                    {event.year} — {event.title}
+                    {event.year} - {event.title}
                   </h4>
                   <p className="text-sm">{event.description}</p>
                 </div>

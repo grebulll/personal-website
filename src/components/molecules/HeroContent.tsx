@@ -48,7 +48,7 @@ export const HeroContent = ({
       </p>
       <p className="text-base md:text-lg font-light">
         4 years of production experience. Currently building OpenFin desktop
-        trading applications for a capital markets client — design tokens,
+        trading applications for a capital markets client - design tokens,
         theming, component libraries, and the framework migrations nobody
         volunteers for.
       </p>

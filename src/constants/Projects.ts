@@ -12,7 +12,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: 'Trading Desktop Platform',
-    subtitle: 'Capital markets client — current',
+    subtitle: 'Capital markets client - current',
     stack: ['React', 'TypeScript', 'OpenFin', 'Storybook', 'Redux Toolkit'],
     description:
       'Design system and theming architecture for a multi-window desktop trading platform. Built the colour token system across three themes, a three-tier UI density mode, and the shared error-handling layer. Maintain the component library as a versioned npm package consumed by two applications.',

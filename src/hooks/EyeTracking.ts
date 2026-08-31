@@ -65,7 +65,7 @@ export const useEyeTracking = ({
       lastInput.current = performance.now();
     };
 
-    // a tap is a deliberate "look here" — treat it as input too
+    // a tap is a deliberate "look here" - treat it as input too
     const onPointerDown = (e: PointerEvent) => {
       gaze.current = { x: e.clientX, y: e.clientY };
       lastInput.current = performance.now();
@@ -99,7 +99,7 @@ export const useEyeTracking = ({
         // Aim from the midpoint between the eyes, then apply the same angle to
         // both pupils. Solving each eye independently is anatomically correct
         // but converges at close range, which reads as cross-eyed on a
-        // stylised face — this keeps them parallel.
+        // stylised face - this keeps them parallel.
         const lRect = left.parentElement?.getBoundingClientRect();
         const rRect = right.parentElement?.getBoundingClientRect();
         if (lRect && rRect) {

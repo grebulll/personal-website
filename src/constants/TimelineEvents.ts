@@ -21,6 +21,6 @@ export const timelineEvents = [
     year: '2025',
     title: 'Moved into Trading Platforms',
     description:
-      'Joined Rocketfin building OpenFin desktop applications for a capital markets client — design tokens, theming, component libraries and framework migrations.',
+      'Joined Rocketfin building OpenFin desktop applications for a capital markets client - design tokens, theming, component libraries and framework migrations.',
   },
 ];

@@ -20,7 +20,7 @@ export default function AboutSection() {
           <h2 className="text-4xl font-medium mb-4">About Me</h2>
           <p className="mb-8 leading-relaxed text-base md:text-lg font-light">
             I build design systems and the interfaces that sit on top of them.
-            Most of my work lately is desktop trading software — colour tokens
+            Most of my work lately is desktop trading software - colour tokens
             across multiple themes, component libraries other teams depend on,
             and the framework migrations nobody volunteers for. Before that,
             healthcare apps and a ticketing kiosk you can still find at Malta

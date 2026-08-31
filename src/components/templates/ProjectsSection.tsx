@@ -71,7 +71,7 @@ export const ProjectsSection = () => {
                     href={project.link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${project.title} — opens in a new tab`}
+                    aria-label={`${project.title} - opens in a new tab`}
                     className="inline-flex items-center gap-2 mt-4 text-sm font-medium underline underline-offset-4 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2"
                   >
                     {project.link.label}
