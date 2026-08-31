@@ -22,9 +22,9 @@ export default function AboutSection() {
             I build design systems and the interfaces that sit on top of them.
             Most of my work lately is desktop trading software - colour tokens
             across multiple themes, component libraries other teams depend on,
-            and the framework migrations nobody volunteers for. Before that,
-            healthcare apps and a ticketing kiosk you can still find at Malta
-            International Airport.
+            and the framework migrations nobody volunteers for. Before that, 
+            healthcare apps and a ticketing kiosk that ran at the Malta International 
+            Airport.
           </p>
         </motion.div>
 

@@ -1,4 +1,4 @@
-import { useState, useRef, ReactNode } from 'react';
+import { useState, useRef, useEffect, ReactNode } from 'react';
 
 interface TiltCardProps {
   children: ReactNode;
@@ -18,8 +18,14 @@ const TiltCard = ({
   const animationRef = useRef<number>(0);
   const isHovering = useRef(false);
 
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    setEnabled(window.matchMedia('(hover: hover)').matches);
+  }, []);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (!enabled || !cardRef.current) return;
 
     isHovering.current = true;
     cancelAnimationFrame(animationRef.current as number);
@@ -42,6 +48,8 @@ const TiltCard = ({
   };
 
   const handleMouseLeave = () => {
+    if (!enabled) return;
+
     isHovering.current = false;
 
     const startTime = performance.now();
@@ -67,10 +75,12 @@ const TiltCard = ({
   return (
     <div
       ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      onMouseMove={enabled ? handleMouseMove : undefined}
+      onMouseLeave={enabled ? handleMouseLeave : undefined}
       style={{
-        transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+        transform: enabled
+          ? `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`
+          : undefined,
         transition: isHovering.current
           ? 'transform 0.05s linear'
           : `transform ${resetSpeed}ms cubic-bezier(0.18, 0.89, 0.32, 1.28)`,
