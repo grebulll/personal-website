@@ -66,7 +66,7 @@ export const HeroContent = ({
           />
         </a>
         <a
-          href="https://github.com/gab-cin"
+          href="https://github.com/grebulll"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub profile"
